@@ -9,7 +9,6 @@ const axios = require('axios');
 public_users.post("/register", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-
   if (username && password) {
     const exists = users.filter((user) => user.username === username).length > 0;
     if (!exists) {
@@ -19,7 +18,7 @@ public_users.post("/register", (req, res) => {
       return res.status(404).json({ message: "User already exists!" });
     }
   }
-  return res.status(404).json({ message: "Unable to register user. Provide username and password." });
+  return res.status(404).json({ message: "Unable to register user." });
 });
 
 // Task 10: Get the book list available in the shop using Async/Await with Axios
